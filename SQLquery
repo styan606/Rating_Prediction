@@ -1,0 +1,45 @@
+SELECT
+	F.createdAt,
+	ROUND(AVG(F.rating), 0) AS rating,
+	COUNT(DISTINCT S.slideIndex) AS numSlides,
+	COUNT(distinct SS.id) AS numShapes,
+	COUNT(distinct S.filename) AS numImgs,
+	P.isEdited,
+	(EXISTS (SELECT * FROM feedback z WHERE z.presentationId = F.presentationId
+	AND z.text IS NOT NULL)) AS hasExplanation,
+	(EXISTS (SELECT * FROM slide_shapes xx JOIN slides x ON xx.slideId = x.id 
+		WHERE x.presentationId = F.presentationId AND xx.deletedAt IS NULL AND xx.type = 'video')) AS hasVideo,
+	(EXISTS (SELECT * FROM slide_shapes xx JOIN slides x ON xx.slideId = x.id 
+		WHERE x.presentationId = F.presentationId AND xx.deletedAt IS NULL AND xx.type = 'wordcloud')) AS hasWordcloud,
+	(EXISTS (SELECT * FROM slide_shapes xx JOIN slides x ON xx.slideId = x.id 
+		WHERE x.presentationId = F.presentationId AND xx.deletedAt IS NULL AND xx.type = 'mpc_options')) AS hasMPC,
+	ROUND(AVG(SS.x), 1) AS avgX,
+	ROUND(AVG(SS.y), 1) AS avgY,
+	ROUND(AVG(SS.width), 1) AS avgWidth,
+	ROUND(AVG(SS.height), 1) AS avgHeight,
+   P.presentationStyleId,
+   S.backgroundOpacity,
+   #COUNT(distinct PC.id) AS aiCalls,
+	#SUM(prompt_tokens) AS sumPrompt_tokens,
+   #SUM(response_tokens) AS sumResponse_tokens,
+   #SUM(PC.total_tokens) AS sumTotalTokens,
+   CHAR_LENGTH(PA.initialPrompt) AS initialPromptTokens,
+   CHAR_LENGTH(PA.response) AS responseTokens,
+   PA.`language` AS 'language', 
+   PA.`length`,
+   PA.toneOfVoice,
+   GROUP_CONCAT(distinct S.filename SEPARATOR '||' ) AS imgURLs,
+   PA.`subject`
+FROM feedback F
+LEFT JOIN slides S ON F.presentationId = S.presentationId
+JOIN slide_shapes SS ON S.id = SS.slideId
+JOIN presentations P ON F.presentationId = P.id
+#JOIN presentation_ai_calls PC ON PC.presentationId = F.presentationId
+JOIN presentation_ai_jobs PA ON PA.presentationId = F.presentationId
+WHERE F.rating IS NOT NULL
+AND S.isDeleted = 0
+AND P.isDeleted = 0
+AND SS.deletedAt IS NULL
+AND S.filename IS NOT NULL
+AND PA.toneOfVoice IS NOT NULL
+GROUP BY F.presentationId
