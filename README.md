@@ -56,7 +56,4 @@ List of the features:
 
   
 
-The second data file **SMOTENC.xlsx** [7099 presentations] represents the same data after eliminating some features that were deemed unnecessary, as well as applying the SMOTENC oversampling technique to compensate for the highly imbalanced presentation ratings in the raw dataset.
-
-The third and last datafile **afterSCALING** is representative of the same data as the previous file (**SMOTENC.xlsx**) after applying standardization techniques, as well as one-hot encoding of categorical features. THIS DATA IS USED TO IDENTIFY FEATURE IMPORTANCE AND TRAIN EACH PREDICTIVE MODEL.
-
+The second datafile **afterSCALING** [7099 presentations] is representative of the same data as the previous file (**dataset3099.xlsx**) after preprocessing the data (e.g. feature selection, oversampling using SMOTENC, one-hot encoding, feature sampling, among others - view the full report for more details)
