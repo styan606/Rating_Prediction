@@ -2,7 +2,7 @@
 How do linear and non-linear predictive models perform in predicting the quality ratings of AI-generated presentations, and which features contribute most significantly to these predictions?
 
 In this repository you can find all of the necessary files (excel as well as python) to recreate the research that I conducted during my Internship stay at Sendsteps.ai. 
-Please refer to the attached PDF file entailing a full report of the research steps taken to fulfill the goal of:
+Please refer to the attached PDF file (**Andreas_BPAI_SENDSTEPS.pdf**) entailing a full report of the research steps taken to fulfill the goal of:
 
   **A.** Identify which features are most strongly correlated to the presentation rating
   
@@ -72,4 +72,4 @@ Additionally, this reportistory entails 6 python files.
 Lastly, **scaling.py** is the python file that was used to apply one-hot encoding as well as standardization/normalization to the data.
 
 
-Evidently there have been more intermediate steps, as can be observed when reading through the report (), but for the sake of cluttering and bas oversight, these messy python files are left out of this repository. These steps can easily be reproduced (e.g. plots, elimination or combination of features, and so on).
+Evidently there have been more intermediate steps, as can be observed when reading through the report (**Andreas_BPAI_SENDSTEPS.pdf**), but for the sake of avoiding cluttering and bad oversight, these messy python files are left out of this repository. These steps can easily be reproduced (e.g. plots, elimination or combination of features, and so on).
