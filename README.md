@@ -1,4 +1,4 @@
-# Rating_Prediction
+# Predicting ratings of AI generated presentations
 How do linear and non-linear predictive models perform in predicting the quality ratings of AI-generated presentations, and which features contribute most significantly to these predictions?
 
 In this repository you can find all of the necessary files (excel as well as python) to recreate the research that I conducted during my Internship stay at Sendsteps.ai. 
