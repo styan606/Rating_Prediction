@@ -2,15 +2,15 @@
 How do linear and non-linear predictive models perform in predicting the quality ratings of AI-generated presentations, and which features contribute most significantly to these predictions?
 
 In this repository you can find all of the necessary files (excel as well as python) to recreate the research that I conducted during my Internship stay at Sendsteps.ai. 
-Please refer to the attached PDF file entailing a full report of the research steps taken to fulfill the goal of
+Please refer to the attached PDF file entailing a full report of the research steps taken to fulfill the goal of:
 
   **A.** Identify which features are most strongly correlated to the presentation rating
   
   **B.** Leverage machine learning techniques to predict presentation ratings
 
-You can find three excel files that contain data.
+You can find two excel files that contain data.
 
-The first file **dataset3099.csv** represents the raw data used for this project [3099 presentations]. 
+The first file **dataset3099.csv** represents the raw data used for this project [3099 presentations] collected by a SQL query (referring to file SQLquery in repository). 
 List of the features:
 
 
