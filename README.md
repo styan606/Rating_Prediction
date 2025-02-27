@@ -56,4 +56,20 @@ List of the features:
 
   
 
-The second datafile **afterSCALING** [7099 presentations] is representative of the same data as the previous file (**dataset3099.xlsx**) after preprocessing the data (e.g. feature selection, oversampling using SMOTENC, one-hot encoding, feature sampling, among others - view the full report for more details)
+The second datafile **afterSCALING.xlsx** [7099 presentations] is representative of the same data as the previous file (**dataset3099.xlsx**) after preprocessing the data (e.g. feature selection, oversampling using SMOTENC, one-hot encoding, feature sampling, among others - view the full report for more details)
+
+
+Additionally, this reportistory entails 6 python files.
+
+**SMOTENC.py** is the code that was used to oversample the imbalanced raw data using the SMOTENC oversampling technique.
+
+**CLIP.py** is the code to create the new feature 'imgRelevance' using OpenAIs CLIP Model. This score represents the average relevance of presntation images to the presentation subject.
+
+**GB.py** and **RFC.py** represent the code for the linear models: Gradient Boosting Classifier and Random Forest Classifier + built-in feature ranking (Gini importance).
+
+**bayesian.py** is the code for the Neural Network, using bayesian hyperparameter optimization (hence the name of the file).
+
+Lastly, **scaling.py** is the python file that was used to apply one-hot encoding as well as standardization/normalization to the data.
+
+
+Evidently there have been more intermediate steps, as can be observed when reading through the report (), but for the sake of cluttering and bas oversight, these messy python files are left out of this repository. These steps can easily be reproduced (e.g. plots, elimination or combination of features, and so on).
